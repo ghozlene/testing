@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"test": "vitest --global"
+		"test": "vitest --globals"
 	},
 	"keywords": [],
 	"author": "Maximilian Schwarzmüller",
@@ -13,6 +13,6 @@
 		"express": "^4.17.3"
 	},
 	"devDependencies": {
-		"vitest": "^0.9.4"
+		"vitest": "^0.9.0"
 	}
 }

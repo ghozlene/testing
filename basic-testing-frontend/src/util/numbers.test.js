@@ -38,4 +38,13 @@ describe('cleanNumbers()', () => {
 
 		expect(cleanedNumbers[0]).toBeTypeOf('number');
 	});
+
+	it('should throw an error if an array with an empty string is provided', () => {
+		const numbers = ['', 1];
+
+		//awalys wrapping the function in another function to test throw error
+		const cleanFn = () => cleanNumbers(numbers);
+
+		expect(cleanFn).toThrow();
+	});
 });

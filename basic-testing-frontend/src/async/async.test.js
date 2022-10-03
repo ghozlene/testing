@@ -23,7 +23,7 @@ describe('generateTokenPromise()', () => {
 	it('should return a token', () => {
 		const testUserEmail = 'aaaa@aaa.com';
 
-		expect(generateTokenPromise(testUserEmail)).resolves.toBeDefined();
+		return expect(generateTokenPromise(testUserEmail)).resolves.toBeDefined();
 	});
 });
 

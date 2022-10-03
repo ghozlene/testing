@@ -1,4 +1,12 @@
-import { it, expect, beforeAll, beforeEach, afterEach, afterAll } from 'vitest';
+import {
+	it,
+	expect,
+	beforeAll,
+	beforeEach,
+	afterEach,
+	afterAll,
+	describe,
+} from 'vitest';
 
 import { User } from './hooks';
 
@@ -18,30 +26,35 @@ afterAll(() => {
 	console.log('after all');
 });
 
-it('should update the email', () => {
-	const newTestEmail = 'test2@test.com';
+//we can use concurrent to speed up testing by run all the test on //
+//when we asign it to a suit of test like describe
+//or using it on some of test to making // testing on them
+describe.concurrent('Testing the User email', () => {
+	it.concurrent('should update the email', () => {
+		const newTestEmail = 'test2@test.com';
 
-	user.updateEmail(newTestEmail);
+		user.updateEmail(newTestEmail);
 
-	expect(user.email).toBe(newTestEmail);
-});
+		expect(user.email).toBe(newTestEmail);
+	});
 
-it('should have an email property', () => {
-	expect(user).toHaveProperty('email');
-});
+	it('should have an email property', () => {
+		expect(user).toHaveProperty('email');
+	});
 
-it('should store the provided email value', () => {
-	expect(user.email).toBe(testEmail);
-});
+	it('should store the provided email value', () => {
+		expect(user.email).toBe(testEmail);
+	});
 
-it('should clear the email', () => {
-	user.clearEmail();
+	it('should clear the email', () => {
+		user.clearEmail();
 
-	expect(user.email).toBe('');
-});
+		expect(user.email).toBe('');
+	});
 
-it('should still have an email property after clearing the email', () => {
-	user.clearEmail();
+	it('should still have an email property after clearing the email', () => {
+		user.clearEmail();
 
-	expect(user).toHaveProperty('email');
+		expect(user).toHaveProperty('email');
+	});
 });
